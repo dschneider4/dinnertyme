@@ -15,6 +15,13 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  <div class="field">
+  <%= f.label :recipe_id %>
+  <% Recipe.all.each do |recipe| %>
+    <%= recipe.name %>
+    <%= check_box_tag 'kitchen[recipe_ids][]', recipe.id, @kitchen.recipes.include?(recipe) %>
+  <% end %>
+  </div><br>
   <div class="actions">
     <%= f.submit %>
   </div>

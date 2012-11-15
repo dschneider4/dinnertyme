@@ -23,6 +23,13 @@
     <%= f.label :amount %><br />
     <%= f.number_field :amount %>
   </div>
+     <div class="field">
+    <%= f.label :recipe_id %>
+  <% Recipe.all.each do |recipe| %>
+    <%= recipe.name %>
+    <%= check_box_tag 'ingredient[recipe_ids][]', recipe.id, @ingredient.recipes.include?(recipe) %>
+  <% end %>
+  </div><br>
   <div class="actions">
     <%= f.submit %>
   </div>

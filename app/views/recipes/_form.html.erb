@@ -32,6 +32,12 @@
     <%= f.label :rating %><br />
     <%= f.number_field :rating %>
   </div>
+
+    <div class="field">
+    <%= f.label :kitchen_id %><br />
+    <%= f.select :kitchen_id, Kitchen.all.map{|a|[a.name, a.id]}, {:prompt => "Pick a kitchen"} %>
+  </div><br>
+
   <div class="actions">
     <%= f.submit %>
   </div>
